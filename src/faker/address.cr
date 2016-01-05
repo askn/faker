@@ -47,5 +47,13 @@ module Faker
         ->{ "??## #??" },
       ].sample.call).upcase
     end
+
+    def self.latitude
+      ((rand * 180) - 90).to_s
+    end
+
+    def self.longitude
+      ((rand * 360) - 180).to_s
+    end
   end
 end

@@ -39,6 +39,9 @@ Faker::Address.state
 Faker::Address.state_abbr
 Faker::Address.country
 
+Faker::Address.latitude
+Faker::Address.longitude
+
 ```
 
 ### Faker::Company

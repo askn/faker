@@ -17,6 +17,9 @@ puts Faker::Address.state
 puts Faker::Address.state_abbr
 puts Faker::Address.country
 
+puts Faker::Address.latitude
+puts Faker::Address.longitude
+
 puts "\n### Faker::Company\n\n"
 
 puts Faker::Company.name
