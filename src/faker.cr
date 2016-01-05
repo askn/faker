@@ -7,16 +7,10 @@ module Faker
   end
 
   def self.letterify(letter_string)
-    letter_string.gsub(/\?/) { ("a".."z").to_a.rand }
+    letter_string.gsub(/\?/) { ("a".."z").to_a.sample }
   end
 
   def self.bothify(string)
     self.letterify(self.numerify(string))
-  end
-end
-
-class Array
-  def rand
-    self.at(rand(self.size))
   end
 end

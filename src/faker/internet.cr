@@ -5,11 +5,11 @@ module Faker
     end
 
     def self.free_email(name = nil)
-      [user_name(name), %w(gmail.com yahoo.com hotmail.com).rand].join("@")
+      [user_name(name), Data["internet"]["free_email"].sample].join("@")
     end
 
     def self.user_name(name = nil)
-      return name.scan(/\w+/).shuffle.map(&.[0]).join(%w(. _).rand).downcase if name
+      return name.scan(/\w+/).shuffle.map(&.[0]).join(%w(. _).sample).downcase if name
       [
         ->{ Name.first_name.gsub(/\W/, "").downcase },
         ->{
@@ -17,7 +17,7 @@ module Faker
             n.gsub(/\W/, "")
           }.join(".").downcase
         },
-      ].rand.call
+      ].sample.call
     end
 
     def self.domain_name
@@ -29,15 +29,15 @@ module Faker
     end
 
     def self.domain_suffix
-      %w(co.uk com us ca biz info name).rand
+      Data["internet"]["domain_suffix"].sample
     end
 
     def self.ip_v4_address
       [
-        (0..255).to_a.rand,
-        (0..255).to_a.rand,
-        (0..255).to_a.rand,
-        (0..255).to_a.rand,
+        (0..255).to_a.sample,
+        (0..255).to_a.sample,
+        (0..255).to_a.sample,
+        (0..255).to_a.sample,
       ].join('.')
     end
   end

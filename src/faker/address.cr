@@ -1,12 +1,12 @@
 module Faker
   class Address
     def self.zip_code
-      Faker.numerify(["#####", "#####-####"].rand)
+      Faker.numerify(["#####", "#####-####"].sample)
     end
 
     {% for data_type in %w(state state_abbr city_suffix city_prefix country street_suffix) %}
     def self.{{data_type.id}}
-      Faker::Data["{{data_type.id}}"].rand
+        Faker::Data["address"]["{{data_type.id}}"].sample
     end
     {% end %}
 
@@ -16,14 +16,14 @@ module Faker
         "%s %s" % [city_prefix, Name.first_name],
         "%s%s" % [Name.first_name, city_suffix],
         "%s%s" % [Name.last_name, city_suffix],
-      ].rand
+      ].sample
     end
 
     def self.street_name
       [
         ->{ [Name.last_name, street_suffix].join(" ") },
         ->{ [Name.first_name, street_suffix].join(" ") },
-      ].rand.call
+      ].sample.call
     end
 
     def self.street_address
@@ -34,21 +34,18 @@ module Faker
         ->{ "##### %s" % street_name },
         ->{ "##### %s Apt. ###" % street_name },
         ->{ "##### %s Suite ###" % street_name },
-      ].rand.call)
+      ].sample.call)
     end
 
     def self.secondary_address
-      Faker.numerify([
-        "Apt. ###",
-        "Suite ###",
-      ].rand)
+      Faker.numerify(Faker::Data["address"]["secondary_address"].sample)
     end
 
     def self.postcode
       Faker.bothify([
         ->{ "??# #??" },
         ->{ "??## #??" },
-      ].rand.call).upcase
+      ].sample.call).upcase
     end
   end
 end

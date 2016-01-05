@@ -1,11 +1,11 @@
 module Faker
   class Company
     def self.name
-      Formats.rand.call
+      Formats.sample.call
     end
 
     def self.suffix
-      %w(Inc and\ Sons LLC Group).rand
+      Faker::Data["company"]["suffix"].sample
     end
 
     Formats = [
