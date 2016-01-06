@@ -31,7 +31,7 @@ Faker::Address.secondary_address
 Faker::Address.building_number
 Faker::Address.zip_code
 Faker::Address.postcode
-
+Faker::Address.time_zone
 Faker::Address.street_suffix
 Faker::Address.city_suffix
 Faker::Address.city_prefix

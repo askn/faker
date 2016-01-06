@@ -9,7 +9,7 @@ puts Faker::Address.secondary_address
 puts Faker::Address.building_number
 puts Faker::Address.zip_code
 puts Faker::Address.postcode
-
+puts Faker::Address.time_zone
 puts Faker::Address.street_suffix
 puts Faker::Address.city_suffix
 puts Faker::Address.city_prefix

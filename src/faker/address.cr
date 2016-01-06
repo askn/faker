@@ -59,5 +59,9 @@ module Faker
     def self.longitude
       ((rand * 360) - 180).to_s
     end
+
+    def self.time_zone
+      Faker.bothify(Faker.fetch(Data["address"]["time_zone"]))
+    end
   end
 end
