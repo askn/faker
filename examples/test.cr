@@ -6,7 +6,7 @@ puts Faker::Address.city
 puts Faker::Address.street_name
 puts Faker::Address.street_address
 puts Faker::Address.secondary_address
-
+puts Faker::Address.building_number
 puts Faker::Address.zip_code
 puts Faker::Address.postcode
 
@@ -24,6 +24,8 @@ puts "\n### Faker::Company\n\n"
 
 puts Faker::Company.name
 puts Faker::Company.suffix
+puts Faker::Company.catch_phrase
+puts Faker::Company.bs
 
 puts "\n\t### Faker::Internet\n\n"
 
@@ -31,6 +33,8 @@ puts Faker::Internet.email
 puts Faker::Internet.email("Nancy")
 puts Faker::Internet.free_email
 puts Faker::Internet.free_email("Nancy")
+puts Faker::Internet.safe_email
+puts Faker::Internet.safe_email("Nancy")
 
 puts Faker::Internet.user_name
 puts Faker::Internet.user_name("Nancy")
@@ -45,6 +49,9 @@ puts "\n\t### Faker::Lorem\n\n"
 
 puts Faker::Lorem.words
 puts Faker::Lorem.words(4)
+
+puts Faker::Lorem.characters
+puts Faker::Lorem.characters(10)
 
 puts Faker::Lorem.sentence
 puts Faker::Lorem.sentence(3)

@@ -41,11 +41,15 @@ module Faker
       Faker.numerify(Faker.fetch(Data["address"]["secondary_address"]))
     end
 
+    def self.building_number
+      Faker.bothify(Faker.fetch(Data["address"]["building_number"]))
+    end
+
     def self.postcode
       Faker.bothify([
         ->{ "??# #??" },
         ->{ "??## #??" },
-      ].sample.call).upcase
+      ].sample.call)
     end
 
     def self.latitude

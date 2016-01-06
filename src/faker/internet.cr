@@ -8,6 +8,10 @@ module Faker
       [user_name(name), Faker.fetch(Data["internet"]["free_email"])].join("@")
     end
 
+    def self.safe_email(name = nil)
+      [user_name(name), "example." + %w(org com net).shuffle.first].join("@")
+    end
+
     def self.user_name(name = nil)
       return name.scan(/\w+/).shuffle.map(&.[0]).join(%w(. _).sample).downcase if name
       [
@@ -34,10 +38,10 @@ module Faker
 
     def self.ip_v4_address
       [
-        (0..255).to_a.sample,
-        (0..255).to_a.sample,
-        (0..255).to_a.sample,
-        (0..255).to_a.sample,
+        (2..254).to_a.sample,
+        (2..254).to_a.sample,
+        (2..254).to_a.sample,
+        (2..254).to_a.sample,
       ].join('.')
     end
   end
