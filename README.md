@@ -69,6 +69,9 @@ Faker::Internet.domain_word
 Faker::Internet.domain_suffix
 
 Faker::Internet.ip_v4_address
+
+Faker::Internet.url
+Faker::Internet.slug
 ```
 
 ### Faker::Lorem

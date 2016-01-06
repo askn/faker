@@ -44,5 +44,14 @@ module Faker
         (2..254).to_a.sample,
       ].join('.')
     end
+
+    def self.url
+      "http://#{domain_name}/#{user_name}"
+    end
+
+    def self.slug(words = nil, glue = nil)
+      glue ||= %w(- _ .).sample
+      (words || Lorem.words(2).join(' ')).gsub(' ', glue).downcase
+    end
   end
 end

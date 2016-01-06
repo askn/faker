@@ -46,6 +46,9 @@ puts Faker::Internet.domain_suffix
 
 puts Faker::Internet.ip_v4_address
 
+puts Faker::Internet.url
+puts Faker::Internet.slug
+
 puts "\n\t### Faker::Lorem\n\n"
 
 puts Faker::Lorem.words
