@@ -5,7 +5,7 @@ module Faker
     end
 
     def self.suffix
-      Faker::Data["company"]["suffix"].sample
+      Faker.fetch(Data["company"]["suffix"])
     end
 
     Formats = [

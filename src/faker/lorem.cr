@@ -2,7 +2,8 @@ module Faker
   # Based on Perl"s Text::Lorem
   class Lorem
     def self.words(num = 3)
-      Faker::Data["lorem"]["words"].shuffle[0, num]
+      words = Data["lorem"]["words"] as Array
+      words.shuffle[0, num]
     end
 
     def self.sentence(word_count = 4)

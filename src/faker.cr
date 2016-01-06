@@ -13,4 +13,9 @@ module Faker
   def self.bothify(string)
     self.letterify(self.numerify(string))
   end
+
+  def self.fetch(data)
+    d = data as Array
+    d.sample
+  end
 end

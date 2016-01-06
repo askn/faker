@@ -65,6 +65,7 @@ puts Faker::Name.first_name
 puts Faker::Name.last_name
 puts Faker::Name.prefix
 puts Faker::Name.suffix
+puts Faker::Name.title
 
 puts "\n\t### Faker::PhoneNumber\n\n"
 

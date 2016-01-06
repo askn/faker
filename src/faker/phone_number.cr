@@ -1,7 +1,7 @@
 module Faker
   class PhoneNumber
     def self.phone_number
-      Faker.numerify(Data["phone_number"]["formats"].sample)
+      Faker.numerify(Faker.fetch(Data["phone_number"]["formats"]))
     end
   end
 end

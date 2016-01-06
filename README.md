@@ -96,6 +96,7 @@ Faker::Name.first_name
 Faker::Name.last_name
 Faker::Name.prefix
 Faker::Name.suffix
+Faker::Name.title
 ```
 
 ### Faker::PhoneNumber

@@ -5,7 +5,7 @@ module Faker
     end
 
     def self.free_email(name = nil)
-      [user_name(name), Data["internet"]["free_email"].sample].join("@")
+      [user_name(name), Faker.fetch(Data["internet"]["free_email"])].join("@")
     end
 
     def self.user_name(name = nil)
@@ -29,7 +29,7 @@ module Faker
     end
 
     def self.domain_suffix
-      Data["internet"]["domain_suffix"].sample
+      Faker.fetch(Data["internet"]["domain_suffix"])
     end
 
     def self.ip_v4_address

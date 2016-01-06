@@ -6,7 +6,7 @@ module Faker
 
     {% for data_type in %w(state state_abbr city_suffix city_prefix country street_suffix) %}
     def self.{{data_type.id}}
-        Faker::Data["address"]["{{data_type.id}}"].sample
+      Faker.fetch(Data["address"]["{{data_type.id}}"])
     end
     {% end %}
 
@@ -38,7 +38,7 @@ module Faker
     end
 
     def self.secondary_address
-      Faker.numerify(Faker::Data["address"]["secondary_address"].sample)
+      Faker.numerify(Faker.fetch(Data["address"]["secondary_address"]))
     end
 
     def self.postcode
