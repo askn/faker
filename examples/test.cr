@@ -74,6 +74,11 @@ puts Faker::Name.prefix
 puts Faker::Name.suffix
 puts Faker::Name.title
 
+puts "\n\t### Faker::Number\n\n"
+
+puts Faker::Number.number(10)
+puts Faker::Number.digit
+
 puts "\n\t### Faker::PhoneNumber\n\n"
 
 puts Faker::PhoneNumber.phone_number

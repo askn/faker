@@ -108,6 +108,13 @@ Faker::Name.suffix
 Faker::Name.title
 ```
 
+### Faker::Number
+
+```crystal
+Faker::Number.number(10)
+Faker::Number.digit
+```
+
 ### Faker::PhoneNumber
 
 ```crystal
