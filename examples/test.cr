@@ -20,6 +20,12 @@ puts Faker::Address.country
 puts Faker::Address.latitude
 puts Faker::Address.longitude
 
+puts "\n### Faker::Commerce\n\n"
+
+puts Faker::Commerce.color
+puts Faker::Commerce.department
+puts Faker::Commerce.product_name
+
 puts "\n### Faker::Company\n\n"
 
 puts Faker::Company.name

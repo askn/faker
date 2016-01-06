@@ -44,6 +44,14 @@ Faker::Address.longitude
 
 ```
 
+### Faker::Commerce
+
+```crystal
+Faker::Commerce.color
+Faker::Commerce.department
+Faker::Commerce.product_name
+```
+
 ### Faker::Company
 
 ```crystal
