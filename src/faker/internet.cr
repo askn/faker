@@ -12,14 +12,14 @@ module Faker
       [user_name(name), "example." + %w(org com net).shuffle.first].join("@")
     end
 
-    def self.user_name(name = nil)
-      return name.scan(/\w+/).shuffle.map(&.[0]).join(%w(. _).sample).downcase if name
+    def self.user_name(name = nil, separators = %w(. _))
+      return name.scan(/\w+/).shuffle.map(&.[0]).join(separators.sample).downcase if name
       [
         ->{ Name.first_name.gsub(/\W/, "").downcase },
         ->{
           [Name.first_name, Name.last_name].map { |n|
             n.gsub(/\W/, "")
-          }.join(".").downcase
+          }.join(separators.sample).downcase
         },
       ].sample.call
     end

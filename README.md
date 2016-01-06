@@ -62,6 +62,7 @@ Faker::Internet.safe_email
 Faker::Internet.safe_email("Nancy")
 Faker::Internet.user_name
 Faker::Internet.user_name("Nancy")
+Faker::Internet.user_name("Nancy Johnson", %w(. _ -))
 
 Faker::Internet.domain_name
 Faker::Internet.domain_word

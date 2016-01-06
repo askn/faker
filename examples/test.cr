@@ -38,6 +38,7 @@ puts Faker::Internet.safe_email("Nancy")
 
 puts Faker::Internet.user_name
 puts Faker::Internet.user_name("Nancy")
+puts Faker::Internet.user_name("Nancy Johnson", %w(. _ -))
 
 puts Faker::Internet.domain_name
 puts Faker::Internet.domain_word
