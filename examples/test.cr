@@ -91,6 +91,8 @@ puts Faker::Name.title
 puts "\n\t### Faker::Number\n\n"
 
 puts Faker::Number.number(10)
+puts Faker::Number.decimal(2)
+puts Faker::Number.decimal(2, 3)
 puts Faker::Number.digit
 
 puts "\n\t### Faker::PhoneNumber\n\n"

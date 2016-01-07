@@ -125,6 +125,8 @@ Faker::Name.title
 
 ```crystal
 Faker::Number.number(10)
+Faker::Number.decimal(2)
+Faker::Number.decimal(2, 3)
 Faker::Number.digit
 ```
 
