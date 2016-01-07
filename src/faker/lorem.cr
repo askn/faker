@@ -6,6 +6,11 @@ module Faker
       Array(String).new(char_count < 0 ? 0 : char_count, "").map { chars.sample }.join("")
     end
 
+    def self.word
+      words = Data["lorem"]["words"] as Array
+      Faker.fetch(words)
+    end
+
     def self.words(num = 3, supplemental = false)
       words = Data["lorem"]["words"] as Array
       words += (Data["lorem"]["supplemental"] as Array) if supplemental

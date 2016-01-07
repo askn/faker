@@ -50,6 +50,7 @@ Faker::Address.longitude
 Faker::Commerce.color
 Faker::Commerce.department
 Faker::Commerce.product_name
+Faker::Commerce.price
 ```
 
 ### Faker::Company

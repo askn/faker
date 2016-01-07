@@ -12,5 +12,9 @@ module Faker
       product_name = Data["commerce"]["product_name"] as Hash
       Faker.fetch(product_name["adjective"]) + " " + Faker.fetch(product_name["material"]) + " " + Faker.fetch(product_name["product"])
     end
+
+    def self.price
+      (rand(100) + rand).round(2)
+    end
   end
 end

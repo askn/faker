@@ -53,5 +53,13 @@ module Faker
       glue ||= %w(- _ .).sample
       (words || Lorem.words(2).join(' ')).gsub(' ', glue).downcase
     end
+
+    def self.password(min_length = 0)
+      temp = Lorem.words.join
+      while temp.size < min_length
+        temp += Lorem.word
+      end
+      return temp
+    end
   end
 end

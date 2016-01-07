@@ -25,6 +25,7 @@ puts "\n### Faker::Commerce\n\n"
 puts Faker::Commerce.color
 puts Faker::Commerce.department
 puts Faker::Commerce.product_name
+puts Faker::Commerce.price
 
 puts "\n### Faker::Company\n\n"
 
@@ -45,6 +46,9 @@ puts Faker::Internet.safe_email("Nancy")
 puts Faker::Internet.user_name
 puts Faker::Internet.user_name("Nancy")
 puts Faker::Internet.user_name("Nancy Johnson", %w(. _ -))
+
+puts Faker::Internet.password
+puts Faker::Internet.password(12)
 
 puts Faker::Internet.domain_name
 puts Faker::Internet.domain_word
