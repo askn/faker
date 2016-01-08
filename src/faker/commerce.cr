@@ -1,7 +1,7 @@
 module Faker
   class Commerce
     def self.color
-      Faker.fetch(Data["commerce"]["color"])
+      Faker.fetch(Data["color"]["name"])
     end
 
     def self.department

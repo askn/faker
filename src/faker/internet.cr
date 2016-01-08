@@ -45,6 +45,12 @@ module Faker
       ].join('.')
     end
 
+    def self.ip_v6_address
+      ip_v6_space = (0..65535).to_a
+      container = (1..8).map { |_| ip_v6_space.sample }
+      container.map { |n| n.to_s(16) }.join(':')
+    end
+
     def self.url
       "http://#{domain_name}/#{user_name}"
     end

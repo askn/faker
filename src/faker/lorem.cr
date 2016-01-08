@@ -1,6 +1,10 @@
 module Faker
   # Based on Perl"s Text::Lorem
   class Lorem
+    def self.character
+      characters(1)
+    end
+
     def self.characters(char_count = 255)
       chars = ("a".."z").to_a + (0..9).to_a
       Array(String).new(char_count < 0 ? 0 : char_count, "").map { chars.sample }.join("")
@@ -12,8 +16,8 @@ module Faker
     end
 
     def self.words(num = 3, supplemental = false)
-      words = Data["lorem"]["words"] as Array
-      words += (Data["lorem"]["supplemental"] as Array) if supplemental
+      words = Data["lorem"]["words"] as Array(String)
+      words += (Data["lorem"]["supplemental"] as Array(String)) if supplemental
 
       words.shuffle[0, num]
     end

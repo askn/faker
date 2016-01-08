@@ -9,16 +9,18 @@ module Faker
     end
 
     def self.catch_phrase
-      [Faker.fetch(Data["company"]["buzzword_1"]), Faker.fetch(Data["company"]["buzzword_2"]), Faker.fetch(Data["company"]["buzzword_3"])].join(" ")
+      data = Data["company"]["buzzwords"] as Array(Array(String))
+      Faker.fetch(data.flatten)
     end
 
     def self.bs
-      [Faker.fetch(Data["company"]["bs_1"]), Faker.fetch(Data["company"]["bs_2"]), Faker.fetch(Data["company"]["bs_3"])].join(" ")
+      data = Data["company"]["bs"] as Array(Array(String))
+      Faker.fetch(data.flatten)
     end
 
     Formats = [
-      ->{ [Name.last_name, suffix].join(' ') },
-      ->{ [Name.last_name, Name.last_name].join('-') },
+      ->{ [Name.last_name, suffix].join(" ") },
+      ->{ [Name.last_name, Name.last_name].join("-") },
       ->{ "%s, %s and %s" % [Name.last_name, Name.last_name, Name.last_name] },
     ]
   end
