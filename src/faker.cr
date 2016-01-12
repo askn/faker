@@ -29,7 +29,63 @@ module Faker
   end
 
   def self.fetch(data)
-    d = data as Array
-    d.sample
+    data = data as Array
+    fetched = data.sample as String
+    if fetched.match(/^\//) && fetched.match(/\/$/) # A regex
+      fetched = Faker.regexify(fetched)
+    end
+
+    Faker.parse(fetched) as String
+  end
+
+  def self.parse(st)
+    st.gsub(/%\{([^\}]+)\}/) do |str, matches|
+      # find_fn([Name.name, Name.first_name], $1)
+      find_fnx($1)
+    end
+  end
+
+  # macro find_fn(list, fn)
+  #   case {{fn}}
+  #     {% for l in list %}
+  #       when "{{l}}"
+  #         {{l}}
+  #     {% end %}
+  #   else
+  #     "Hoaydaaa"
+  #   end
+  # end
+
+  macro find_fnx(fn)
+    case {{fn}}
+    when "Address.building_number"
+      Address.building_number
+    when "Address.city_prefix"
+      Address.city_prefix
+    when "Address.city_suffix"
+      Address.city_suffix
+    when "Address.state"
+      Address.state
+    when "Address.street_name"
+      Address.street_name
+    when "Address.street_suffix"
+      Address.street_suffix
+    when "Company.name"
+      Company.name
+    when "Company.suffix"
+      Company.suffix
+    when "Name.first_name"
+      Name.first_name
+    when "Name.last_name"
+      Name.last_name
+    when "Name.name"
+      Name.name
+    when "Name.prefix"
+      Name.prefix
+    when "Name.suffix"
+      Name.suffix
+    else
+      "Hoaydaaa"
+    end
   end
 end

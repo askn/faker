@@ -58,7 +58,7 @@ Faker::Address.latitude #=> "-58.17256227443719"
 Faker::Address.longitude #=> "-156.65548382095133"
 ```
 
-### Faker::Business
+### Faker::Business
 ------------------
 
 ```crystal
@@ -72,7 +72,7 @@ Faker::Business.credit_card_type #=> "visa"
 ```
 
 
-### Faker::Commerce
+### Faker::Commerce
 
 ```crystal
 
@@ -85,7 +85,7 @@ Faker::Commerce.price #=> "44.6"
 
 ```
 
-### Faker::Company
+### Faker::Company
 
 ```crystal
 
@@ -96,7 +96,7 @@ Faker::Company.suffix #=> "Group"
 ```
 
 
-### Faker::Internet
+### Faker::Internet
 
 ```crystal
 # Optional argument name=nil
@@ -146,7 +146,7 @@ Faker::Internet.slug('foo bar', '-') #=> "foo-bar"
 
 ```
 
-### Faker::Lorem
+### Faker::Lorem
 
 ```crystal
 
@@ -216,7 +216,7 @@ Faker::Number.digit #=> "1"
 
 ```
 
-### Faker::PhoneNumber
+### Faker::PhoneNumber
 
 ```crystal
 

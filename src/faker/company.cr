@@ -1,7 +1,7 @@
 module Faker
   class Company
     def self.name
-      Formats.sample.call
+      Faker.fetch(Data["company"]["name"])
     end
 
     def self.suffix
@@ -17,11 +17,5 @@ module Faker
       data = Data["company"]["bs"] as Array(Array(String))
       Faker.fetch(data.flatten)
     end
-
-    Formats = [
-      ->{ [Name.last_name, suffix].join(" ") },
-      ->{ [Name.last_name, Name.last_name].join("-") },
-      ->{ "%s, %s and %s" % [Name.last_name, Name.last_name, Name.last_name] },
-    ]
   end
 end
