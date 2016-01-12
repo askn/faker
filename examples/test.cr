@@ -98,3 +98,9 @@ puts Faker::Number.digit
 puts "\n\t### Faker::PhoneNumber\n\n"
 
 puts Faker::PhoneNumber.phone_number
+
+puts "\n\t### Faker::Business\n\n"
+
+p Faker::Business.credit_card_number
+p Faker::Business.credit_card_expiry_date
+p Faker::Business.credit_card_type

@@ -11,12 +11,7 @@ module Faker
     {% end %}
 
     def self.city
-      [
-        "%s %s%s" % [city_prefix, Name.first_name, city_suffix],
-        "%s %s" % [city_prefix, Name.first_name],
-        "%s%s" % [Name.first_name, city_suffix],
-        "%s%s" % [Name.last_name, city_suffix],
-      ].sample
+      Faker.fetch(Data["address"]["city"])
     end
 
     def self.street_name
