@@ -17,5 +17,10 @@ module Faker
       data = Data["company"]["bs"] as Array(Array(String))
       Faker.fetch(data.flatten)
     end
+
+    def self.logo
+      rand_num = Random.rand(13) + 1
+      "https://pigment.github.io/fake-logos/logos/medium/color/#{rand_num}.png"
+    end
   end
 end

@@ -59,7 +59,6 @@ Faker::Address.longitude #=> "-156.65548382095133"
 ```
 
 ### Faker::Business
-------------------
 
 ```crystal
 
@@ -93,6 +92,8 @@ Faker::Company.name #=> "Hirthe-Ritchie"
 
 Faker::Company.suffix #=> "Group"
 
+# Get a random company logo url in PNG format.
+Faker::Company.logo #=> "https://pigment.github.com/fake-logos/logos/medium/color/5.png"
 ```
 
 
@@ -136,8 +137,14 @@ Faker::Internet.ip_v4_address #=> "24.29.18.175"
 
 Faker::Internet.ip_v6_address #=> "ac5f:d696:3807:1d72:2eb5:4e81:7d2b:e1df"
 
+# Optional argument prefix=''
+Faker::Internet.mac_address #=> "e6:0d:00:11:ed:4f"
+Faker::Internet.mac_address('55:44:33') #=> "55:44:33:02:1d:9b"
+
 # Optional arguments: host=domain_name, path="/#{user_name}"
 Faker::Internet.url #=> "http://thiel.com/chauncey_simonis"
+Faker::Internet.url('example.com') #=> "http://example.com/clotilde.swift"
+Faker::Internet.url('example.com', '/foobar.html') #=> "http://example.com/foobar.html"
 
 # Optional arguments: words=nil, glue=nil
 Faker::Internet.slug #=> "pariatur_laudantium"
@@ -165,6 +172,9 @@ Faker::Lorem.characters(10) #=> "ang9cbhoa8"
 Faker::Lorem.sentence #=> "Dolore illum animi et neque accusantium."
 Faker::Lorem.sentence(3) #=> "Commodi qui minus deserunt sed vero quia."
 Faker::Lorem.sentence(3, true) #=> "Inflammatio denego necessitatibus caelestis autus illum."
+Faker::Lorem.sentence(3, false, 4) #=> "Aut voluptatem illum fugit ut sit."
+Faker::Lorem.sentence(3, true, 4) #=> "Accusantium tantillus dolorem timor."
+
 # Optional arguments: sentence_count=3, supplemental=false
 Faker::Lorem.sentences #=> ["Vero earum commodi soluta.", "Quaerat fuga cumque et vero eveniet omnis ut.", "Cumque sit dolor ut est consequuntur."]
 Faker::Lorem.sentences(1) #=> ["Ut perspiciatis explicabo possimus doloribus enim quia."]
@@ -174,6 +184,8 @@ Faker::Lorem.sentences(1, true) #=> ["Quis capillus curo ager veritatis voro et 
 Faker::Lorem.paragraph #=> "Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente."
 Faker::Lorem.paragraph(2) #=> "Illo qui voluptas. Id sit quaerat enim aut cupiditate voluptates dolorum. Porro necessitatibus numquam dolor quia earum."
 Faker::Lorem.paragraph(2, true) #=> ""
+Faker::Lorem.paragraph(2, false, 4) #=> "Neque aut et nemo aut incidunt voluptates. Dolore cum est sint est. Vitae assumenda porro odio dolores fugiat. Est voluptatum quia rerum."
+Faker::Lorem.paragraph(2, true, 4) #=> "Vomito unde uxor annus. Et patior utilis sursum."
 
 # Optional arguments: paragraph_count=3, supplemental=false
 Faker::Lorem.paragraphs #=> ""
@@ -224,6 +236,21 @@ Faker::PhoneNumber.phone_number #=> "397.693.1309"
 
 ```
 
+
+### Faker::Team
+
+```crystal
+
+# Random Team Creature
+Faker::Team.creature #=> "gooses"
+
+# Random Team Name created from random US State (Faker::Address.state) prepended to a random Team Creature
+Faker::Team.name #=> "Oregon vixens"
+
+# Random Team State
+Faker::Team.state #=> "Oregon"
+
+```
 
 ## Contributing
 
