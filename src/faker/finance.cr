@@ -2,7 +2,7 @@ module Faker
   class Finance
     CREDIT_CARD_TYPES = (Data["credit_card"] as Hash).keys
 
-    def self.credit_card(types = [] of Array(String) : Array)
+    def self.credit_card(types : Array = [] of Array(String))
       types = CREDIT_CARD_TYPES if types.empty?
       type = types.sample
 

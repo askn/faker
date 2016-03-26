@@ -51,7 +51,7 @@ describe Faker::Internet do
     (1..32).to_a.each do |min_length|
       (min_length + 1..33).each do |max_length|
         u = Faker::Internet.user_name((min_length...max_length), %w(=))
-        assert { u.size.between? min_length, max_length - 1 }
+        assert { min_length <= u.size <= max_length - 1 }
         assert { u.match(/\A[a-z]+((=)?[a-z]*)*\z/) }
       end
     end
