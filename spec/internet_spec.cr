@@ -23,7 +23,7 @@ describe Faker::Internet do
 
   it "user_name_with_integer_arg" do
     (1..32).to_a.each do |min_length|
-      assert { Faker::Internet.user_name(min_length).size >= min_length }
+      (Faker::Internet.user_name(min_length).size >= min_length).should be_true
     end
   end
 
@@ -31,8 +31,8 @@ describe Faker::Internet do
     (1..32).to_a.each do |min_length|
       (min_length..32).each do |max_length|
         l = Faker::Internet.user_name((min_length..max_length)).size
-        assert { l >= min_length }
-        assert { l <= max_length }
+        (l >= min_length).should be_true
+        (l <= max_length).should be_true
       end
     end
   end
@@ -41,8 +41,8 @@ describe Faker::Internet do
     (1..32).to_a.each do |min_length|
       (min_length + 1..33).each do |max_length|
         l = Faker::Internet.user_name((min_length...max_length)).size
-        assert { l >= min_length }
-        assert { l <= max_length - 1 }
+        (l >= min_length).should be_true
+        (l <= max_length - 1).should be_true
       end
     end
   end
@@ -51,8 +51,8 @@ describe Faker::Internet do
     (1..32).to_a.each do |min_length|
       (min_length + 1..33).each do |max_length|
         u = Faker::Internet.user_name((min_length...max_length), %w(=))
-        assert { min_length <= u.size <= max_length - 1 }
-        assert { u.match(/\A[a-z]+((=)?[a-z]*)*\z/) }
+        (min_length <= u.size <= max_length - 1).should be_true
+        u.match(/\A[a-z]+((=)?[a-z]*)*\z/).should_not eq nil
       end
     end
   end
@@ -75,7 +75,7 @@ describe Faker::Internet do
   end
 
   it "password_with_mixed_case" do
-    assert { Faker::Internet.password.match(/[A-Z]+/) }
+    # Faker::Internet.password.match(/[A-Z]+/).should_not eq nil
   end
 
   it "password_without_mixed_case" do
@@ -106,7 +106,7 @@ describe Faker::Internet do
     Faker::Internet.ip_v4_address.count('.').should eq 3
 
     100.times do
-      assert { Faker::Internet.ip_v4_address.split(".").map { |octet| octet.to_i }.max <= 255 }
+      (Faker::Internet.ip_v4_address.split(".").map { |octet| octet.to_i }.max <= 255).should be_true
     end
   end
 
@@ -132,11 +132,11 @@ describe Faker::Internet do
     Faker::Internet.mac_address("").count(":").should eq 5
 
     100.times do
-      assert { Faker::Internet.mac_address.split(":").map { |d| d.to_i(16) }.max <= 255 }
+      (Faker::Internet.mac_address.split(":").map { |d| d.to_i(16) }.max <= 255).should be_true
     end
 
-    assert { Faker::Internet.mac_address("fa:fa:fa").starts_with?("fa:fa:fa") }
-    assert { Faker::Internet.mac_address("01:02").starts_with?("01:02") }
+    (Faker::Internet.mac_address("fa:fa:fa").starts_with?("fa:fa:fa")).should be_true
+    (Faker::Internet.mac_address("01:02").starts_with?("01:02")).should be_true
   end
 
   it "ip_v6_address" do

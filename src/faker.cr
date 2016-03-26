@@ -69,4 +69,10 @@ module Faker
       "Hoaydaaa"
     end
   end
+
+  # Generates a random value between the interval
+  def self.rand_in_range(from, to)
+    from, to = to, from if to < from
+    Random.new.rand(from..to)
+  end
 end
