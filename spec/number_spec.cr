@@ -59,4 +59,9 @@ describe Faker::Number do
     (random_number >= 1).should be_true
     (random_number <= 100).should be_true
   end
+
+  it "hexadecimal" do
+    Faker::Number.hexadecimal(4).match(/[0-9a-f]{4}/).should_not eq nil
+    Faker::Number.hexadecimal(7).match(/[0-9a-f]{7}/).should_not eq nil
+  end
 end

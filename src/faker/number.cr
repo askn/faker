@@ -28,6 +28,12 @@ module Faker
       less_than_zero(random_number)
     end
 
+    def self.hexadecimal(digits)
+      hex = ""
+      digits.times { hex += rand(15).to_s(16) }
+      hex
+    end
+
     private def self.greater_than_zero(number)
       if number > 0
         number
