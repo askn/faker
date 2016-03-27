@@ -93,11 +93,26 @@ module Faker
       (words || Lorem.words(2).join(' ')).gsub(' ', glue).downcase
     end
 
-    def self.password(min_length = 0)
-      temp = Lorem.words.join
-      while temp.size < min_length
-        temp += Lorem.word
+    def self.password(min_length = 8, max_length = 16, mix_case = true, special_chars = false)
+      temp = Lorem.characters(min_length)
+      diff_length = max_length - min_length
+      if diff_length > 0
+        diff_rand = rand(diff_length + 1)
+        temp += Lorem.characters(diff_rand)
       end
+      temp = temp[0..min_length] if min_length > 0
+
+      if mix_case
+        temp = temp.gsub(/.{1,2}/) { |s| "#{s[0]}#{s[1].upcase if s[1]?}" }
+      end
+
+      if special_chars
+        chars = %w(! @ # $ % ^ & *)
+        Random.rand(min_length).times do |i|
+          temp = temp.sub({ temp[i] => chars[Random.rand(chars.size)] })
+        end
+      end
+
       return temp
     end
   end

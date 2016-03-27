@@ -122,10 +122,16 @@ Faker::Internet.user_name('Nancy') #=> "nancy"
 
 Faker::Internet.user_name('Nancy Johnson', %w(. _ -)) #=> "johnson-nancy"
 
-# Optional argument min_length=0
-Faker::Internet.password #=> "doloremquealiquidrerum"
+# Optional arguments: min_length=8, max_length=16
+Faker::Internet.password #=> "vg5msvy1uerg7"
 
-Faker::Internet.password(8) #=> "consecteturadasperiores"
+Faker::Internet.password(8) #=> "yfgjik0hgzdqs0"
+
+Faker::Internet.password(10, 20) #=> "eoc9shwd1hwq4vbgfw"
+
+Faker::Internet.password(10, 20, true) #=> "3k5qS15aNmG"
+
+Faker::Internet.password(10, 20, true, true) #=> "*%NkOnJsH4"
 
 Faker::Internet.domain_name #=> "effertz.info"
 

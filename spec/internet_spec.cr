@@ -62,32 +62,32 @@ describe Faker::Internet do
   end
 
   it "password_with_integer_arg" do
-    # (1..32).to_a.each do |min_length|
-    #   assert { Faker::Internet.password(min_length).size >= min_length }
-    # end
+    (1..32).to_a.each do |min_length|
+      assert { (Faker::Internet.password(min_length).size >= min_length).should be_true }
+    end
   end
 
   it "password_max_with_integer_arg" do
-    # (1..32).to_a.each do |min_length|
-    #   max_length = min_length + 4
-    #   assert { Faker::Internet.password(min_length, max_length).size <= max_length }
-    # end
+    (1..32).to_a.each do |min_length|
+      max_length = min_length + 4
+      assert { (Faker::Internet.password(min_length, max_length).size <= max_length).should be_true }
+    end
   end
 
   it "password_with_mixed_case" do
-    # Faker::Internet.password.match(/[A-Z]+/).should_not eq nil
+    Faker::Internet.password.match(/[A-Z]+/).should_not eq nil
   end
 
   it "password_without_mixed_case" do
-    # Faker::Internet.password(8, 12, false).match(/[^A-Z]+/).should_not eq nil
+    Faker::Internet.password(8, 12, false).match(/[^A-Z]+/).should_not eq nil
   end
 
   it "password_with_special_chars" do
-    # Faker::Internet.password(8, 12, true, true).match(/[!@#\$%\^&\*]+/).should_not eq nil
+    Faker::Internet.password(8, 12, true, true).match(/[!@#\$%\^&\*]+/).should_not eq nil
   end
 
   it "password_without_special_chars" do
-    # Faker::Internet.password(8, 12, true).match(/[^!@#\$%\^&\*]+/).should_not eq nil
+    Faker::Internet.password(8, 12, true).match(/[^!@#\$%\^&\*]+/).should_not eq nil
   end
 
   it "domain_name" do
