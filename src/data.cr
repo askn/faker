@@ -1,7 +1,6 @@
 module Faker
   Data = {
-    "separator": " & ",
-    "address":   {
+    "address": {
       "building_number":   ["#####", "####", "###"],
       "city":              ["%{Address.city_prefix} %{Name.first_name}%{Address.city_suffix}", "%{Address.city_prefix} %{Name.first_name}", "%{Name.first_name}%{Address.city_suffix}", "%{Name.last_name}%{Address.city_suffix}"],
       "city_prefix":       ["North", "East", "West", "South", "New", "Lake", "Port"],

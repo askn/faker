@@ -79,11 +79,16 @@ Faker::Business.credit_card_type #=> "visa"
 
 Faker::Commerce.color #=> "lavender"
 
+# Optional arguments max=3, fixed_amount=false
 Faker::Commerce.department #=> "Grocery, Health & Beauty"
+Faker::Commerce.department(5) #=> "Grocery, Books, Health & Beauty"
+Faker::Commerce.department(2, true) #=> "Books & Tools"
+
 Faker::Commerce.product_name #=> "Practical Granite Shirt"
 
 Faker::Commerce.price #=> "44.6"
 
+Faker::Commerce.material #=> "Plastic"
 ```
 
 ### Faker::Company
