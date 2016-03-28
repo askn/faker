@@ -55,6 +55,7 @@ module Faker
         Name.name,
         Name.prefix,
         Name.suffix,
+        Team.creature,
       ], $1)
     end
   end

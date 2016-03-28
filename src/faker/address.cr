@@ -4,7 +4,7 @@ module Faker
       Faker.numerify(["#####", "#####-####"].sample)
     end
 
-    {% for data_type in %w(state state_abbr city_suffix city_prefix country street_suffix) %}
+    {% for data_type in %w(state state_abbr city_suffix city_prefix country street_suffix country_code) %}
     def self.{{data_type.id}}
       Faker.fetch(Data["address"]["{{data_type.id}}"])
     end
@@ -56,7 +56,7 @@ module Faker
     end
 
     def self.time_zone
-      Faker.bothify(Faker.fetch(Data["address"]["time_zone"]))
+      Faker.fetch(Data["address"]["time_zone"])
     end
   end
 end

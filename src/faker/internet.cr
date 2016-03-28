@@ -103,13 +103,13 @@ module Faker
       temp = temp[0..min_length] if min_length > 0
 
       if mix_case
-        temp = temp.gsub(/.{1,2}/) { |s| "#{s[0]}#{s[1].upcase if s[1]?}" }
+        temp = temp.gsub(/.{1,2}/) { |s| s.capitalize }
       end
 
       if special_chars
         chars = %w(! @ # $ % ^ & *)
         Random.rand(min_length).times do |i|
-          temp = temp.sub({ temp[i] => chars[Random.rand(chars.size)] })
+          temp = temp.sub({temp[i] => chars[Random.rand(chars.size)]})
         end
       end
 

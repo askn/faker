@@ -53,6 +53,8 @@ Faker::Address.state_abbr #=> "AP"
 
 Faker::Address.country #=> "French Guiana"
 
+Faker::Address.country_code #=> "IT"
+
 Faker::Address.latitude #=> "-58.17256227443719"
 
 Faker::Address.longitude #=> "-156.65548382095133"
