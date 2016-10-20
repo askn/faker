@@ -9,12 +9,12 @@ module Faker
     end
 
     def self.catch_phrase
-      data = Data["company"]["buzzwords"] as Array(Array(String))
+      data = Data["company"]["buzzwords"].as Array(Array(String))
       Faker.fetch(data.flatten)
     end
 
     def self.bs
-      data = Data["company"]["bs"] as Array(Array(String))
+      data = Data["company"]["bs"].as Array(Array(String))
       Faker.fetch(data.flatten)
     end
 

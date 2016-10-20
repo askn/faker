@@ -5,7 +5,7 @@ module Faker
     end
 
     def self.credit_card_expiry_date
-      credit_card_expiry_date = Faker.fetch(Data["business"]["credit_card_expiry_dates"]) as String
+      credit_card_expiry_date = Faker.fetch(Data["business"]["credit_card_expiry_dates"]).as String
       Time.parse(credit_card_expiry_date, "%Y-%m-%d")
     end
 

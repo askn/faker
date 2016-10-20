@@ -11,13 +11,13 @@ module Faker
     end
 
     def self.word
-      words = Data["lorem"]["words"] as Array
+      words = Data["lorem"]["words"].as Array
       Faker.fetch(words)
     end
 
     def self.words(num = 3, supplemental = false)
-      words = Data["lorem"]["words"] as Array(String)
-      words += (Data["lorem"]["supplemental"] as Array(String)) if supplemental
+      words = Data["lorem"]["words"].as Array(String)
+      words += (Data["lorem"]["supplemental"].as Array(String)) if supplemental
 
       words.shuffle[0, num]
     end
