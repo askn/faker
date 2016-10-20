@@ -7,7 +7,7 @@ module Faker
     {% end %}
 
     def self.title
-      title = Data["name"]["title"] as Hash
+      title = Data["name"]["title"].as Hash
       Faker.fetch(title["descriptor"]) + " " + Faker.fetch(title["level"]) + " " + Faker.fetch(title["job"])
     end
   end

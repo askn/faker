@@ -18,12 +18,12 @@ module Faker
     end
 
     def self.material
-      product_name = Data["commerce"]["product_name"] as Hash
+      product_name = Data["commerce"]["product_name"].as Hash
       Faker.fetch(product_name["material"])
     end
 
     def self.product_name
-      product_name = Data["commerce"]["product_name"] as Hash
+      product_name = Data["commerce"]["product_name"].as Hash
       Faker.fetch(product_name["adjective"]) + " " + Faker.fetch(product_name["material"]) + " " + Faker.fetch(product_name["product"])
     end
 
