@@ -1,5 +1,7 @@
 # faker
 
+[![Build Status](https://travis-ci.org/askn/faker.svg?branch=master)](https://travis-ci.org/askn/faker)
+
 This shard is a port of [Faker](https://github.com/stympy/faker) gem that generates fake data.
 
 
