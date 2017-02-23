@@ -1,7 +1,7 @@
 require "./spec_helper"
 
 describe Faker::Hacker do
-  assert { (Faker::Hacker.phrases.size == 8).should be_true }
+  it { (Faker::Hacker.phrases.size == 8).should be_true }
 
   it "phrases" do
     Faker::Hacker.phrases.each do |phrase|

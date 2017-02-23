@@ -63,14 +63,14 @@ describe Faker::Internet do
 
   it "password_with_integer_arg" do
     (1..32).to_a.each do |min_length|
-      assert { (Faker::Internet.password(min_length).size >= min_length).should be_true }
+      it { (Faker::Internet.password(min_length).size >= min_length).should be_true }
     end
   end
 
   it "password_max_with_integer_arg" do
     (1..32).to_a.each do |min_length|
       max_length = min_length + 4
-      assert { (Faker::Internet.password(min_length, max_length).size <= max_length).should be_true }
+      it { (Faker::Internet.password(min_length, max_length).size <= max_length).should be_true }
     end
   end
 
@@ -119,11 +119,11 @@ describe Faker::Internet do
 
     1000.times do
       # address = Faker::Internet.public_ip_v4_address
-      # assert_not_match ten_dot, address
-      # assert_not_match one_two_seven, address
-      # assert_not_match one_six_nine, address
-      # assert_not_match one_nine_two, address
-      # assert_not_match one_seven_two, address
+      # it_not_match ten_dot, address
+      # it_not_match one_two_seven, address
+      # it_not_match one_six_nine, address
+      # it_not_match one_nine_two, address
+      # it_not_match one_seven_two, address
     end
   end
 
@@ -143,7 +143,7 @@ describe Faker::Internet do
     Faker::Internet.ip_v6_address.count(":").should eq 7
 
     100.times do
-      # assert { Faker::Internet.ip_v6_address.split(".").map { |h| "0x#{h}".to_i }.max <= 65535 }
+      # it { Faker::Internet.ip_v6_address.split(".").map { |h| "0x#{h}".to_i }.max <= 65535 }
     end
   end
 
