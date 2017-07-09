@@ -23,6 +23,10 @@ require "faker"
 Faker::Name.name
 ```
 
+### Faker.seed
+
+If you wish to seed the random data, you can call `Faker.seed number` and then all subsequent calls will be deterministic.
+
 ### Faker::Address
 
 ```crystal

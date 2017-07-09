@@ -5,7 +5,7 @@ module Faker
     end
 
     def self.digit
-      rand(10).to_s
+      Faker.rng.rand(10).to_s
     end
 
     def self.decimal(l_digits, r_digits = 2)
@@ -30,7 +30,7 @@ module Faker
 
     def self.hexadecimal(digits)
       hex = ""
-      digits.times { hex += rand(15).to_s(16) }
+      digits.times { hex += Faker.rng.rand(15).to_s(16) }
       hex
     end
 

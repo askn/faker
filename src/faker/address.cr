@@ -1,7 +1,7 @@
 module Faker
   class Address
     def self.zip_code
-      Faker.numerify(["#####", "#####-####"].sample)
+      Faker.numerify(["#####", "#####-####"].sample(Faker.rng))
     end
 
     {% for data_type in %w(state state_abbr city_suffix city_prefix country street_suffix country_code) %}
@@ -18,7 +18,7 @@ module Faker
       [
         ->{ [Name.last_name, street_suffix].join(" ") },
         ->{ [Name.first_name, street_suffix].join(" ") },
-      ].sample.call
+      ].sample(Faker.rng).call
     end
 
     def self.street_address
@@ -29,7 +29,7 @@ module Faker
         ->{ "##### %s" % street_name },
         ->{ "##### %s Apt. ###" % street_name },
         ->{ "##### %s Suite ###" % street_name },
-      ].sample.call)
+      ].sample(Faker.rng).call)
     end
 
     def self.secondary_address
@@ -44,15 +44,15 @@ module Faker
       Faker.bothify([
         ->{ "??# #??" },
         ->{ "??## #??" },
-      ].sample.call)
+      ].sample(Faker.rng).call)
     end
 
     def self.latitude
-      ((rand * 180) - 90).to_s
+      ((Faker.rng.rand * 180) - 90).to_s
     end
 
     def self.longitude
-      ((rand * 360) - 180).to_s
+      ((Faker.rng.rand * 360) - 180).to_s
     end
 
     def self.time_zone

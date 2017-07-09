@@ -19,7 +19,7 @@ module Faker
     end
 
     def self.logo
-      rand_num = Random.rand(13) + 1
+      rand_num = Faker.rng.rand(13) + 1
       "https://pigment.github.io/fake-logos/logos/medium/color/#{rand_num}.png"
     end
   end

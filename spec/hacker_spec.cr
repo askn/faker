@@ -29,4 +29,14 @@ describe Faker::Hacker do
   it "ingverb" do
     Faker::Hacker.ingverb.match(/\w+/).should_not eq nil
   end
+
+  it "should return deterministic results when seeded" do
+    Faker.seed 123456
+    Faker::Hacker.say_something_smart.should eq "You can't override the sensor without overriding the primary JBOD transmitter!"
+    Faker::Hacker.abbreviation.should eq "SCSI"
+    Faker::Hacker.adjective.should eq "primary"
+    Faker::Hacker.noun.should eq "pixel"
+    Faker::Hacker.verb.should eq "transmit"
+    Faker::Hacker.ingverb.should eq "calculating"
+  end
 end
