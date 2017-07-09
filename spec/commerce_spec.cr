@@ -52,4 +52,15 @@ describe Faker::Commerce do
   it "price_is_float" do
     Faker::Commerce.price.is_a?(Float).should be_true
   end
+
+  it "should return deterministic results when seeded" do
+    Faker.seed 123456
+    Faker::Commerce.color.should eq "salmon"
+    Faker::Commerce.department.should eq "Home, Movies & Computers"
+    Faker::Commerce.department(5).should eq "Toys & Home"
+    Faker::Commerce.department(2, true).should eq "Electronics & Tools"
+    Faker::Commerce.product_name.should eq "Heavy Duty Copper Lamp"
+    Faker::Commerce.price.should eq 47.25
+    Faker::Commerce.material.should eq "Rubber"
+  end
 end

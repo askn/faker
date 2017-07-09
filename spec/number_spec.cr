@@ -64,4 +64,16 @@ describe Faker::Number do
     Faker::Number.hexadecimal(4).match(/[0-9a-f]{4}/).should_not eq nil
     Faker::Number.hexadecimal(7).match(/[0-9a-f]{7}/).should_not eq nil
   end
+
+  it "should return deterministic results when seeded" do
+    Faker.seed 123456
+    Faker::Number.number(10).should eq "6961710422"
+    Faker::Number.decimal(2).should eq "82.34"
+    Faker::Number.decimal(2, 3).should eq "21.217"
+    Faker::Number.hexadecimal(3).should eq "046"
+    Faker::Number.between(1, 10).should eq 2
+    Faker::Number.positive.should eq 3995.8054520295627
+    Faker::Number.negative.should eq -748.5527873256278
+    Faker::Number.digit.should eq "2"
+  end
 end

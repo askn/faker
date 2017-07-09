@@ -166,4 +166,35 @@ describe Faker::Internet do
   it "device_token" do
     # Faker::Internet.device_token.size.should eq 64
   end
+
+  it "should return deterministic results when seeded" do
+    Faker.seed 123456
+    Faker::Internet.email.should eq "internet_faker@kirlinblock.biz"
+    Faker::Internet.email("Nancy").should eq "nancy@cremin.io"
+    Faker::Internet.free_email.should eq "faker.internet@gmail.com"
+    Faker::Internet.free_email("Nancy").should eq "nancy@hotmail.com"
+    Faker::Internet.safe_email.should eq "faker_internet@example.net"
+    Faker::Internet.safe_email("Nancy").should eq "nancy@example.net"
+    Faker::Internet.user_name.should eq "faker.internet"
+    Faker::Internet.user_name("Nancy").should eq "nancy"
+    Faker::Internet.user_name("Nancy Johnson", [".", "_", "-"] of ::String).should eq "johnson.nancy"
+    Faker::Internet.password.should eq "Tb34Ap05U"
+    Faker::Internet.password(8).should eq "BhI59sBo9"
+    Faker::Internet.password(10, 20).should eq "9r3b4iL8HeY"
+    Faker::Internet.password(10, 20, true).should eq "91JpPrF867Z"
+    Faker::Internet.password(10, 20, true, true).should eq "Pl5q3eOqZsK"
+    Faker::Internet.domain_name.should eq "ullrichklocko.biz"
+    Faker::Internet.domain_word.should eq "lockman"
+    Faker::Internet.domain_suffix.should eq "net"
+    Faker::Internet.ip_v4_address.should eq "6.70.63.244"
+    Faker::Internet.ip_v6_address.should eq "8a31:c21c:fb41:eea8:9df:aeab:9f78:5a49"
+    Faker::Internet.mac_address.should eq "00:4b:14:3d:24:55"
+    Faker::Internet.mac_address("55:44:33").should eq "55:44:33:36:0e:5d"
+    Faker::Internet.url.should eq "http://koelpin.biz/internet_faker"
+    Faker::Internet.url("example.com").should eq "http://example.com/faker_internet"
+    Faker::Internet.url("example.com", "/foobar.html").should eq "http://example.com/foobar.html"
+    Faker::Internet.slug.should eq "voluptatem.dicta"
+    Faker::Internet.slug("foo bar").should eq "foo.bar"
+    Faker::Internet.slug("foo bar", "-").should eq "foo-bar"
+  end
 end

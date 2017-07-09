@@ -6,7 +6,7 @@ module Faker
 
     def self.department(max = 3, fixed_amount = false)
       num = max if fixed_amount
-      num ||= 1 + rand(max)
+      num ||= 1 + Faker.rng.rand(max)
 
       categories = categories(num)
 
@@ -28,7 +28,7 @@ module Faker
     end
 
     def self.price(range = 0.0..100.0)
-      (rand(range) * 100).floor/100.0
+      (Faker.rng.rand(range) * 100).floor/100.0
     end
 
     private def self.categories(num)

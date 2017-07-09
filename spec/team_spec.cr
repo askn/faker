@@ -16,4 +16,11 @@ describe Faker::Team do
   it "sport" do
     #  Faker::Team.sport.match(/(\w+){1}/).should_not eq nil
   end
+
+  it "should return deterministic results when seeded" do
+    Faker.seed 123456
+    Faker::Team.creature.should eq "buffalo"
+    Faker::Team.name.should eq "Washington sorcerors"
+    Faker::Team.state.should eq "Delaware"
+  end
 end
