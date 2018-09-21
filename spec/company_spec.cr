@@ -8,8 +8,8 @@ describe Faker::Company do
 
   it "should return deterministic results when seeded" do
     Faker.seed 123456
-    Faker::Company.name.should eq "Larson-Altenwerth"
-    Faker::Company.suffix.should eq "Group"
-    Faker::Company.logo.should eq "https://pigment.github.io/fake-logos/logos/medium/color/12.png"
+    Faker::Company.name.should eq "Kemmer-Gleichner"
+    Faker::Company.suffix.should eq "Inc"
+    Faker::Company.logo.should eq "https://pigment.github.io/fake-logos/logos/medium/color/10.png"
   end
 end

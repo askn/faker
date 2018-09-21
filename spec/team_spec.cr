@@ -19,8 +19,8 @@ describe Faker::Team do
 
   it "should return deterministic results when seeded" do
     Faker.seed 123456
-    Faker::Team.creature.should eq "buffalo"
-    Faker::Team.name.should eq "Washington sorcerors"
-    Faker::Team.state.should eq "Delaware"
+    Faker::Team.creature.should eq "vampires"
+    Faker::Team.name.should eq "New Jersey griffins"
+    Faker::Team.state.should eq "Arkansas"
   end
 end
