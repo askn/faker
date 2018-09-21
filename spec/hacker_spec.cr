@@ -32,10 +32,10 @@ describe Faker::Hacker do
 
   it "should return deterministic results when seeded" do
     Faker.seed 123456
-    Faker::Hacker.say_something_smart.should eq "You can't override the sensor without overriding the primary JBOD transmitter!"
-    Faker::Hacker.abbreviation.should eq "SCSI"
-    Faker::Hacker.adjective.should eq "primary"
-    Faker::Hacker.noun.should eq "pixel"
+    Faker::Hacker.say_something_smart.should eq "backing up the transmitter won't do anything, we need to bypass the  optical RSS firewall!"
+    Faker::Hacker.abbreviation.should eq "USB"
+    Faker::Hacker.adjective.should eq "virtual"
+    Faker::Hacker.noun.should eq "port"
     Faker::Hacker.verb.should eq "transmit"
     Faker::Hacker.ingverb.should eq "calculating"
   end

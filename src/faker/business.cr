@@ -6,7 +6,7 @@ module Faker
 
     def self.credit_card_expiry_date
       credit_card_expiry_date = Faker.fetch(Data["business"]["credit_card_expiry_dates"]).as String
-      Time.parse(credit_card_expiry_date, "%Y-%m-%d")
+      Time.parse_local(credit_card_expiry_date, "%Y-%m-%d")
     end
 
     def self.credit_card_type

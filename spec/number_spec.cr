@@ -67,13 +67,13 @@ describe Faker::Number do
 
   it "should return deterministic results when seeded" do
     Faker.seed 123456
-    Faker::Number.number(10).should eq "6961710422"
-    Faker::Number.decimal(2).should eq "82.34"
-    Faker::Number.decimal(2, 3).should eq "21.217"
-    Faker::Number.hexadecimal(3).should eq "046"
-    Faker::Number.between(1, 10).should eq 2
-    Faker::Number.positive.should eq 3995.8054520295627
-    Faker::Number.negative.should eq -748.5527873256278
-    Faker::Number.digit.should eq "2"
+    Faker::Number.number(10).should eq "9394314441"
+    Faker::Number.decimal(2).should eq "12.05"
+    Faker::Number.decimal(2, 3).should eq "98.256"
+    Faker::Number.hexadecimal(3).should eq "37c"
+    Faker::Number.between(1, 10).should eq 9
+    Faker::Number.positive.should eq 352.4124353316201
+    Faker::Number.negative.should eq -4363.992315679857
+    Faker::Number.digit.should eq "9"
   end
 end

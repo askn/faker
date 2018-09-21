@@ -55,12 +55,12 @@ describe Faker::Commerce do
 
   it "should return deterministic results when seeded" do
     Faker.seed 123456
-    Faker::Commerce.color.should eq "salmon"
-    Faker::Commerce.department.should eq "Home, Movies & Computers"
-    Faker::Commerce.department(5).should eq "Toys & Home"
-    Faker::Commerce.department(2, true).should eq "Electronics & Tools"
-    Faker::Commerce.product_name.should eq "Heavy Duty Copper Lamp"
-    Faker::Commerce.price.should eq 47.25
-    Faker::Commerce.material.should eq "Rubber"
+    Faker::Commerce.color.should eq "fuchsia"
+    Faker::Commerce.department.should eq "Garden & Tools"
+    Faker::Commerce.department(5).should eq "Kids, Health, Tools & Music"
+    Faker::Commerce.department(2, true).should eq "Garden & Industrial"
+    Faker::Commerce.product_name.should eq "Durable Aluminum Bag"
+    Faker::Commerce.price.should eq 62.86
+    Faker::Commerce.material.should eq "Leather"
   end
 end
