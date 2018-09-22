@@ -1,16 +1,22 @@
 module Faker
-  class Internet
+  class Internet < Base
     def self.email(name = nil)
       [user_name(name), domain_name].join("@")
     end
+
+    # TODO: uniquify_builder(email)
 
     def self.free_email(name = nil)
       [user_name(name), Faker.fetch(Data["internet"]["free_email"])].join("@")
     end
 
+    # TODO: uniquify_builder(free_email)
+
     def self.safe_email(name = nil)
       [user_name(name), "example." + %w(org com net).shuffle(Faker.rng).first].join("@")
     end
+
+    # TODO: uniquify_builder(safe_email)
 
     def self.user_name(specifier = nil, separators = %w(. _))
       if specifier.is_a? String
@@ -51,17 +57,25 @@ module Faker
       ].sample(Faker.rng).call
     end
 
+    # TODO: uniquify_builder(user_name)
+
     def self.domain_name
       [domain_word, domain_suffix].join(".")
     end
+
+    uniquify_builder(domain_name)
 
     def self.domain_word
       Company.name.split(" ").first.gsub(/\W/, "").downcase
     end
 
+    uniquify_builder(domain_word)
+
     def self.domain_suffix
       Faker.fetch(Data["internet"]["domain_suffix"])
     end
+
+    uniquify_builder(domain_suffix)
 
     def self.ip_v4_address
       [
@@ -72,11 +86,15 @@ module Faker
       ].join('.')
     end
 
+    uniquify_builder(ip_v4_address)
+
     def self.ip_v6_address
       ip_v6_space = (0..65535).to_a
       container = (1..8).map { |_| ip_v6_space.sample(Faker.rng) }
       container.map { |n| n.to_s(16) }.join(':')
     end
+
+    uniquify_builder(ip_v6_address)
 
     def self.mac_address(prefix = "")
       prefix_digits = prefix.split(":").map { |d| d.to_i?(16) ? d.to_i?(16) : 0 }
@@ -84,14 +102,20 @@ module Faker
       (prefix_digits + address_digits).map { |d| "%02x" % d }.join(":")
     end
 
+    # TODO: uniquify_builder(mac_address)
+
     def self.url(host = domain_name, path = "/#{user_name}")
       "http://#{host}#{path}"
     end
+
+    # TODO: uniquify_builder(url)
 
     def self.slug(words = nil, glue = nil)
       glue ||= %w(- _ .).sample(Faker.rng)
       (words || Lorem.words(2).join(' ')).gsub(' ', glue).downcase
     end
+
+    # TODO: uniquify_builder(slug)
 
     def self.password(min_length = 8, max_length = 16, mix_case = true, special_chars = false)
       temp = Lorem.characters(min_length)
@@ -115,5 +139,6 @@ module Faker
 
       return temp
     end
+    # TODO: uniquify_builder(password)
   end
 end

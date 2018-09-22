@@ -1,14 +1,17 @@
 # Port of http://shinytoylabs.com/jargon/
 module Faker
-  class Hacker
+  class Hacker < Base
     def self.say_something_smart
       phrases.sample(Faker.rng)
     end
+
+    uniquify_builder(say_something_smart)
 
     {% for data_type in %w(abbreviation adjective noun verb ingverb) %}
       def self.{{data_type.id}}
         Faker.fetch(Data["hacker"]["{{data_type.id}}"])
       end
+      uniquify_builder({{data_type.id}})
     {% end %}
 
     def self.phrases

@@ -1,8 +1,10 @@
 module Faker
-  class Commerce
+  class Commerce < Base
     def self.color
       Faker.fetch(Data["color"]["name"])
     end
+
+    uniquify_builder(color)
 
     def self.department(max = 3, fixed_amount = false)
       num = max if fixed_amount
@@ -17,19 +19,27 @@ module Faker
       end
     end
 
+    # TODO: uniquify_builder(department)
+
     def self.material
       product_name = Data["commerce"]["product_name"].as Hash
       Faker.fetch(product_name["material"])
     end
+
+    uniquify_builder(material)
 
     def self.product_name
       product_name = Data["commerce"]["product_name"].as Hash
       Faker.fetch(product_name["adjective"]) + " " + Faker.fetch(product_name["material"]) + " " + Faker.fetch(product_name["product"])
     end
 
+    uniquify_builder(product_name)
+
     def self.price(range = 0.0..100.0)
       (Faker.rng.rand(range) * 100).floor/100.0
     end
+
+    # TODO: uniquify_builder(price)
 
     private def self.categories(num)
       categories = [] of String

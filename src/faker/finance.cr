@@ -1,5 +1,5 @@
 module Faker
-  class Finance
+  class Finance < Base
     CREDIT_CARD_TYPES = (Data["credit_card"].as(Hash)).keys
 
     def self.credit_card(types : Array = [] of Array(String))
@@ -21,5 +21,6 @@ module Faker
       template = template.gsub "L", luhn_digit.to_s
       template
     end
+    # TODO: uniquify_builder(credit_card)
   end
 end
