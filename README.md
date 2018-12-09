@@ -27,7 +27,7 @@ Faker::Name.name
 
 If you wish to seed the random data, you can call `Faker.seed number` and then all subsequent calls will be deterministic.
 
-### Faker::Address
+### Faker::Address
 
 ```crystal
 Faker::Address.city #=> "Imogeneborough"
@@ -66,7 +66,7 @@ Faker::Address.latitude #=> "-58.17256227443719"
 Faker::Address.longitude #=> "-156.65548382095133"
 ```
 
-### Faker::Business
+### Faker::Business
 
 ```crystal
 
@@ -79,7 +79,7 @@ Faker::Business.credit_card_type #=> "visa"
 ```
 
 
-### Faker::Commerce
+### Faker::Commerce
 
 ```crystal
 
@@ -97,7 +97,7 @@ Faker::Commerce.price #=> "44.6"
 Faker::Commerce.material #=> "Plastic"
 ```
 
-### Faker::Company
+### Faker::Company
 
 ```crystal
 
@@ -110,7 +110,7 @@ Faker::Company.logo #=> "https://pigment.github.com/fake-logos/logos/medium/colo
 ```
 
 
-### Faker::Internet
+### Faker::Internet
 
 ```crystal
 # Optional argument name=nil
@@ -172,7 +172,7 @@ Faker::Internet.slug('foo bar', '-') #=> "foo-bar"
 
 ```
 
-### Faker::Lorem
+### Faker::Lorem
 
 ```crystal
 
@@ -213,7 +213,7 @@ Faker::Lorem.paragraphs(1, true) #=> ""
 
 ```
 
-### Faker::Name
+### Faker::Name
 
 ```crystal
 Faker::Name.name #=> "Tyshawn Johns Sr."
@@ -230,7 +230,7 @@ Faker::Name.title #=> "Legacy Creative Director"
 
 ```
 
-### Faker::Number
+### Faker::Number
 
 ```crystal
 
@@ -255,7 +255,7 @@ Faker::Number.digit #=> "1"
 
 ```
 
-### Faker::PhoneNumber
+### Faker::PhoneNumber
 
 ```crystal
 
