@@ -63,14 +63,14 @@ describe Faker::Internet do
 
   it "password_with_integer_arg" do
     (1..32).to_a.each do |min_length|
-      it { (Faker::Internet.password(min_length).size >= min_length).should be_true }
+      (Faker::Internet.password(min_length).size >= min_length).should be_true
     end
   end
 
   it "password_max_with_integer_arg" do
     (1..32).to_a.each do |min_length|
       max_length = min_length + 4
-      it { (Faker::Internet.password(min_length, max_length).size <= max_length).should be_true }
+        (Faker::Internet.password(min_length, max_length).size <= max_length).should be_true
     end
   end
 
