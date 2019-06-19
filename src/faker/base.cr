@@ -9,8 +9,6 @@ module Faker
       @@__unique_vals_for_{{attribute_name}} = Array(Any).new
 
       def self.unique_{{attribute_name}}({% if !modified_method_attributes.empty? %}{{*modified_method_attributes}},{% end %} max_retries = 10_0000)
-        # meth = ->self.{{attribute_name}}
-
         max_retries.times do |t|
           val = self.{{attribute_name}}({{*modified_method_attributes}})
 
