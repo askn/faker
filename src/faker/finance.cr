@@ -21,6 +21,6 @@ module Faker
       template = template.gsub "L", luhn_digit.to_s
       template
     end
-    # TODO: uniquify_builder(credit_card)
+    # TODO: uniquify_builder(credit_card, types : Array = [] of Array(String))
   end
 end

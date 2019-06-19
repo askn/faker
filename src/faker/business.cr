@@ -4,7 +4,7 @@ module Faker
       Faker.fetch(Data["business"]["credit_card_numbers"])
     end
 
-    uniquify_builder(credit_card_numer)
+    uniquify_builder(credit_card_number)
 
     def self.credit_card_expiry_date
       credit_card_expiry_date = Faker.fetch(Data["business"]["credit_card_expiry_dates"]).as String

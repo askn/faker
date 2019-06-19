@@ -4,7 +4,7 @@ module Faker
       (1..digits).map { digit }.join ""
     end
 
-    # TODO: uniquify_builder(number)
+    uniquify_builder(number, digits)
 
     def self.digit
       Faker.rng.rand(10).to_s
@@ -18,27 +18,27 @@ module Faker
       "#{l_d}.#{r_d}"
     end
 
-    # TODO: uniquify_builder(decimal)
+    uniquify_builder(decimal, l_digits, r_digits = 2)
 
     def self.between(from = 1.00, to = 5000.00)
       Faker.rand_in_range(from, to)
     end
 
-    # TODO: uniquify_builder(between)
+    uniquify_builder(between)
 
     def self.positive(from = 1.00, to = 5000.00)
       random_number = between(from, to)
       greater_than_zero(random_number)
     end
 
-    # TODO: uniquify_builder(positive)
+    uniquify_builder(positive)
 
     def self.negative(from = -5000.00, to = -1.00)
       random_number = between(from, to)
       less_than_zero(random_number)
     end
 
-    # TODO: uniquify_builder(negative)
+    uniquify_builder(negative)
 
     def self.hexadecimal(digits)
       hex = ""
@@ -46,7 +46,7 @@ module Faker
       hex
     end
 
-    # TODO: uniquify_builder(hexadecimal)
+    uniquify_builder(hexadecimal)
 
     private def self.greater_than_zero(number)
       if number > 0

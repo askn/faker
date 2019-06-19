@@ -3,14 +3,16 @@ module Faker
   end
 
   class Base
-    macro uniquify_builder(attribute_name)
-      @@__unique_vals_for_{{attribute_name}} = Array(String | Int32).new
+    alias Any = String | Int32 | Float64 | Time
 
-      def self.unique_{{attribute_name}}(max_retries = 10_0000)
-        meth = ->self.{{attribute_name}}
+    macro uniquify_builder(attribute_name, *modified_method_attributes)
+      @@__unique_vals_for_{{attribute_name}} = Array(Any).new
+
+      def self.unique_{{attribute_name}}({% if !modified_method_attributes.empty? %}{{*modified_method_attributes}},{% end %} max_retries = 10_0000)
+        # meth = ->self.{{attribute_name}}
 
         max_retries.times do |t|
-          val = meth.call
+          val = self.{{attribute_name}}({{*modified_method_attributes}})
 
           if !@@__unique_vals_for_{{attribute_name}}.includes?(val)
             @@__unique_vals_for_{{attribute_name}} << val

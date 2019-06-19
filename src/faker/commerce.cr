@@ -19,7 +19,7 @@ module Faker
       end
     end
 
-    # TODO: uniquify_builder(department)
+    uniquify_builder(department, max = 3, fixed_amount = false)
 
     def self.material
       product_name = Data["commerce"]["product_name"].as Hash
@@ -39,7 +39,7 @@ module Faker
       (Faker.rng.rand(range) * 100).floor/100.0
     end
 
-    # TODO: uniquify_builder(price)
+    uniquify_builder(price, range = 0.0..100.0)
 
     private def self.categories(num)
       categories = [] of String

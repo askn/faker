@@ -4,19 +4,19 @@ module Faker
       [user_name(name), domain_name].join("@")
     end
 
-    # TODO: uniquify_builder(email)
+    uniquify_builder(email, name = nil)
 
     def self.free_email(name = nil)
       [user_name(name), Faker.fetch(Data["internet"]["free_email"])].join("@")
     end
 
-    # TODO: uniquify_builder(free_email)
+    uniquify_builder(free_email, name = nil)
 
     def self.safe_email(name = nil)
       [user_name(name), "example." + %w(org com net).shuffle(Faker.rng).first].join("@")
     end
 
-    # TODO: uniquify_builder(safe_email)
+    uniquify_builder(safe_email, name = nil)
 
     def self.user_name(specifier = nil, separators = %w(. _))
       if specifier.is_a? String
@@ -57,7 +57,7 @@ module Faker
       ].sample(Faker.rng).call
     end
 
-    # TODO: uniquify_builder(user_name)
+    uniquify_builder(user_name, specifier = nil, separators = %w(. _))
 
     def self.domain_name
       [domain_word, domain_suffix].join(".")
@@ -102,20 +102,20 @@ module Faker
       (prefix_digits + address_digits).map { |d| "%02x" % d }.join(":")
     end
 
-    # TODO: uniquify_builder(mac_address)
+    uniquify_builder(mac_address, prefix = "")
 
     def self.url(host = domain_name, path = "/#{user_name}")
       "http://#{host}#{path}"
     end
 
-    # TODO: uniquify_builder(url)
+    uniquify_builder(url, host = domain_name, path = "/#{user_name}")
 
     def self.slug(words = nil, glue = nil)
       glue ||= %w(- _ .).sample(Faker.rng)
       (words || Lorem.words(2).join(' ')).gsub(' ', glue).downcase
     end
 
-    # TODO: uniquify_builder(slug)
+    uniquify_builder(slug, words = nil, glue = nil)
 
     def self.password(min_length = 8, max_length = 16, mix_case = true, special_chars = false)
       temp = Lorem.characters(min_length)
@@ -139,6 +139,7 @@ module Faker
 
       return temp
     end
-    # TODO: uniquify_builder(password)
+
+    uniquify_builder(password, min_length = 8, max_length = 16, mix_case = true, special_chars = false)
   end
 end

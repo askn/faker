@@ -23,9 +23,15 @@ puts Faker::Address.longitude
 puts "\n### Faker::Commerce\n\n"
 
 puts Faker::Commerce.color
+puts Faker::Commerce.unique_color
 puts Faker::Commerce.department
+puts Faker::Commerce.unique_department
+puts Faker::Commerce.unique_department(2)
+puts Faker::Commerce.unique_department(2, true)
 puts Faker::Commerce.product_name
 puts Faker::Commerce.price
+puts Faker::Commerce.unique_price
+puts Faker::Commerce.unique_price(0.0..10_000.00)
 
 puts "\n### Faker::Company\n\n"
 
@@ -38,10 +44,16 @@ puts "\n\t### Faker::Internet\n\n"
 
 puts Faker::Internet.email
 puts Faker::Internet.email("Nancy")
+puts Faker::Internet.unique_email("Nancy")
+puts Faker::Internet.unique_email("Nancy")
 puts Faker::Internet.free_email
+puts Faker::Internet.unique_free_email
 puts Faker::Internet.free_email("Nancy")
+puts Faker::Internet.unique_free_email("Nancy")
 puts Faker::Internet.safe_email
+puts Faker::Internet.unique_safe_email
 puts Faker::Internet.safe_email("Nancy")
+puts Faker::Internet.unique_safe_email("Nancy")
 
 puts Faker::Internet.user_name
 puts Faker::Internet.user_name("Nancy")
@@ -88,12 +100,25 @@ puts Faker::Name.prefix
 puts Faker::Name.suffix
 puts Faker::Name.title
 
+puts "\n\t### Faker::Avatar\n\n"
+
+puts Faker::Avatar.image
+puts Faker::Avatar.image("borp")
+puts Faker::Avatar.unique_image("borp")
+puts Faker::Avatar.unique_image("borp")
+
 puts "\n\t### Faker::Number\n\n"
 
 puts Faker::Number.number(10)
+# puts Faker::Number.unique_number(10)
+# puts Faker::Number.unique_number(10)
+# puts Faker::Number.unique_number(10)
 puts Faker::Number.decimal(2)
 puts Faker::Number.decimal(2, 3)
+puts Faker::Number.unique_decimal(2)
+# puts Faker::Number.unique_decimal(2, 3)
 puts Faker::Number.digit
+puts Faker::Number.unique_digit
 
 puts "\n\t### Faker::PhoneNumber\n\n"
 
@@ -101,6 +126,10 @@ puts Faker::PhoneNumber.phone_number
 
 puts "\n\t### Faker::Business\n\n"
 
-p Faker::Business.credit_card_number
-p Faker::Business.credit_card_expiry_date
-p Faker::Business.credit_card_type
+puts Faker::Business.credit_card_number
+puts Faker::Business.credit_card_expiry_date
+puts Faker::Business.credit_card_type
+
+puts Faker::Business.unique_credit_card_number
+puts Faker::Business.unique_credit_card_expiry_date
+puts Faker::Business.unique_credit_card_type
