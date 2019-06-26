@@ -21,4 +21,15 @@ describe Faker::Address do
     Faker::Address.latitude.should eq "-23.850993082533705"
     Faker::Address.longitude.should eq "-4.488135572134695"
   end
+
+  it "should generate unique result" do
+    Faker.seed 123456
+    vals = Array(String).new
+
+    10_000.times do |t|
+      vals << Faker::Address.unique_city
+    end
+
+    vals.size.should eq vals.uniq.size
+  end
 end

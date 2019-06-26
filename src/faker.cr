@@ -1,4 +1,5 @@
 require "./data.cr"
+require "./faker/base"
 require "./faker/*"
 
 module Faker
