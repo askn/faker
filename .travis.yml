@@ -1,8 +1,20 @@
 language: crystal
+
 crystal:
   - latest
   - nightly
+
 script:
   - crystal spec
   - crystal run examples/test.cr
   - crystal run examples/test2.cr
+  - crystal docs
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  project_name: dialogflow-crystal
+  on:
+    branch: master
+  local_dir: docs
