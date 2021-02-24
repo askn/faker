@@ -46,7 +46,7 @@ module Faker
         return result[0...specifier.max]
       end
 
-      return name.scan(/\w+/).shuffle(Faker.rng).map(&.[0]).join(separators.sample(Faker.rng)).downcase if name
+      # return  name.scan(/\w+/).shuffle(Faker.rng).map(&.[0]).join(separators.sample(Faker.rng)).downcase if name
       [
         ->{ Name.first_name.gsub(/\W/, "").downcase },
         ->{
@@ -132,7 +132,8 @@ module Faker
 
       if special_chars
         chars = %w(! @ # $ % ^ & *)
-        Faker.rng.rand(min_length).times do |i|
+        number_of_substitutions = Faker.rng.rand(min_length - 1) + 1 # substitute at least one character
+        number_of_substitutions.times do |i|
           temp = temp.sub({temp[i] => chars[Faker.rng.rand(chars.size)]})
         end
       end
