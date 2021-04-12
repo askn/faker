@@ -1,8 +1,0 @@
-language: crystal
-crystal:
-  - latest
-  - nightly
-script:
-  - crystal spec
-  - crystal run examples/test.cr
-  - crystal run examples/test2.cr
