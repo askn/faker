@@ -110,6 +110,24 @@ Faker::Company.logo #=> "https://pigment.github.com/fake-logos/logos/medium/colo
 ```
 
 
+### Faker::Date
+
+```crystal
+
+Faker::Date.birthday.to_s("%Y-%m-%d") #=> "1993-03-09"
+
+Faker::Date.between("2020-01-01", "2020-08-15").to_s("%Y-%m-%d") #=> "2020-03-29"
+
+Faker::Date.between_except("2020-01-01", "2020-08-15", "2020-05-10").to_s("%Y-%m-%d") #=> "2020-03-29"
+
+Faker::Date.forward(days: 30).to_s("%Y-%m-%d") #=> "2022-02-09"
+
+Faker::Date.backward(days: 30).to_s("%Y-%m-%d") #=> "2021-12-12"
+
+Faker::Date.in_date_period(year: 2005).to_s("%Y-%m-%d") #=> "2005-02-12"
+```
+
+
 ### Faker::Internet
 
 ```crystal
