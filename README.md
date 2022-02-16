@@ -79,6 +79,15 @@ Faker::Business.credit_card_type #=> "visa"
 ```
 
 
+### Faker::Code
+
+```crystal
+
+Faker::Code.isbn #=> 640354399-7
+
+```
+
+
 ### Faker::Commerce
 
 ```crystal
